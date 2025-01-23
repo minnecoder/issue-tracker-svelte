@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Icon } from 'svelte-icons-pack';
 	import { AiOutlineDashboard, AiOutlineProject } from 'svelte-icons-pack/ai';
-	import { IoTicketOutline } from 'svelte-icons-pack/io';
+	import { IoTicket, IoTicketOutline } from 'svelte-icons-pack/io';
 </script>
 
 <div class="main">
@@ -13,14 +13,14 @@
 			</a>
 		</li>
 		<li>
-			<a class="sidebarLink" href="/projects">
+			<a class="sidebarLink" href="/projectslist">
 				<Icon src={AiOutlineProject} color="white" size="2rem" />
 				Projects
 			</a>
 		</li>
 		<li>
 			<a class="sidebarLink" href="/tickets">
-				<Icon src={IoTicketOutline} color="white" size="2rem" />
+				<Icon src={IoTicket} color="white" size="2rem" />
 				My Tickets
 			</a>
 		</li>
@@ -35,7 +35,7 @@
 		position: fixed;
 		top: 100px;
 		left: 0;
-		height: calc(100vh - 65px);
+		height: calc(100vh - 100px);
 		background: #372952;
 		border-right: solid 1px #ddd;
 		padding-right: 2rem;
@@ -47,6 +47,10 @@
 
 	.main li {
 		list-style: none;
+	}
+
+	.main a {
+		text-decoration: none;
 	}
 
 	.sidebarLink {
