@@ -2,12 +2,17 @@
 	import '../app.css';
 	import Sidebar from '../components/Sidebar.svelte';
 	import Header from '../components/Header.svelte';
+	import { page } from '$app/stores';
+
+	$: isAuthRoute = $page.url.pathname.startsWith('/login') || $page.url.pathname.startsWith('/register');
 </script>
 
-<div class="layout">
-	<Header />
-	<Sidebar />
-	<main>
+<div class="layout" class:auth-layout={isAuthRoute}>
+	{#if !isAuthRoute}
+		<Header />
+		<Sidebar />
+	{/if}
+	<main class:auth-main={isAuthRoute}>
 		<slot />
 	</main>
 </div>
@@ -20,11 +25,24 @@
 		grid-template-areas:
 			'header header header'
 			'sidebar main main';
-		grid-gap: 0;
-		background: white;
+		height: 100vh;
 	}
+
+	.auth-layout {
+		display: block;
+	}
+
 	main {
-		flex: 1;
-		padding: 1rem;
+		grid-area: main;
+		padding: 2rem;
+		background-color: #f5f5f5;
+	}
+
+	.auth-main {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		padding: 0;
 	}
 </style>
