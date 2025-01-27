@@ -1,18 +1,18 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	let { data } = $props();
+	let tickets = JSON.parse(data.tickets);
 
-	// TODO: write code to get the tickets for the user
-
-	const dateConverter = (dateTime: string) => {
-		const date = dateTime.substr(0, 10).split('-');
-		date.push(date.splice(0, 1)[0]);
-		return date.join('/');
+	const dateConverter = (dateTime: string): string => {
+		dateTime = JSON.stringify(dateTime, null, 2);
+		const [year, month, day] = dateTime.substr(1, 10).split('-');
+		return `${month}/${day}/${year}`;
 	};
 </script>
 
 <div class="wrapper">
 	<div class="tableTitle">
-		<h3>Tickets for {fullName}</h3>
+		<h3>Tickets for {data.fullName}</h3>
 		<button
 			onclick={() => {
 				goto('/createtickets');
@@ -32,16 +32,22 @@
 			</tr>
 		</thead>
 		<tbody>
-			{tickets.map((ticket, index) => (
-				<tr key={index} onClick={() => updateticketIndex(index)}>
-					<td>{ticket.title}</td>
-					<td>{dateConverter(ticket.createdOn)}</td>
-					<td>{ticket.assignedDev}</td>
-					<td>{ticket.ticketPriority}</td>
-					<td>{ticket.ticketStatus}</td>
-					<td>{ticket.ticketType}</td>
+			{#if tickets && tickets.length > 0}
+				{#each tickets as ticket, index}
+					<tr>
+						<td>{ticket.title}</td>
+						<td>{dateConverter(ticket.createdOn)}</td>
+						<td>{ticket.assignedDev}</td>
+						<td>{ticket.ticketPriority}</td>
+						<td>{ticket.ticketStatus}</td>
+						<td>{ticket.ticketType}</td>
+					</tr>
+				{/each}
+			{:else}
+				<tr>
+					<td colspan="6">No tickets found</td>
 				</tr>
-			))}
+			{/if}
 		</tbody>
 	</table>
 </div>
@@ -49,15 +55,15 @@
 <style>
 	.wrapper {
 		display: flex;
+		flex-direction: column;
 		flex: 1;
 		justify-content: space-between;
 		background: white;
 		grid-area: ticketarea;
-		height: calc(100vh - 4.25rem);
 		overflow-y: scroll;
 	}
 
-	@media only screen and (max-width: 800px) {
+	/* @media only screen and (max-width: 800px) {
 		flex-direction: column;
 		table,
 		thead,
@@ -109,19 +115,22 @@
 		td:nth-of-type(6):before {
 			content: 'Ticket Type';
 		}
-	}
+	} */
 
 	.table {
 		width: 100%;
+		height: 2rem;
 		border-collapse: collapse;
 	}
 	.table thead th {
+		height: 2rem;
 		padding: 0.5rem;
 		text-align: left;
 		background: #e7f3fd;
 	}
 
 	.table td {
+		height: 0.5rem;
 		padding: 0.5rem;
 		text-align: left;
 		border-bottom: solid 1px #eee;
@@ -132,16 +141,17 @@
 	}
 
 	.tableTitle {
+		/* height: 2rem; */
 		display: flex;
+		align-items: center;
 		justify-content: space-between;
 		padding: 1rem 1rem;
 	}
-	.tableTitle h3 {
-		padding-top: 0.25rem;
-	}
+
 	.tableTitle button {
 		padding: 0.5rem;
 		background: #eb7012;
+		border: none;
 		color: white;
 		border-radius: 5px;
 	}
