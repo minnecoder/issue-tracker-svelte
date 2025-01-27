@@ -19,14 +19,11 @@
 			</a>
 		</li>
 		<li>
-			<a class="sidebarLink" href="/tickets">
+			<a class="sidebarLink" href="/ticketslist">
 				<Icon src={IoTicket} color="white" size="2rem" />
 				My Tickets
 			</a>
 		</li>
-
-		<li><a class="sidebarLink" href="/manageroles">Manage Roles</a></li>
-		<li><a class="sidebarLink" href="/manageusers">Manage Users</a></li>
 	</ul>
 </div>
 
