@@ -7,7 +7,7 @@
 </script>
 
 <div class="wrapper">
-	<form class="loginForm">
+	<form class="loginForm" method="POST" action="/register">
 		<h1>Delivery Notes</h1>
 		<h4>{error}</h4>
 		<div class="inputGroup">
