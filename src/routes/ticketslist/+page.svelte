@@ -15,7 +15,7 @@
 		<h3>Tickets for {data.fullName}</h3>
 		<button
 			onclick={() => {
-				goto('/createtickets');
+				goto('/createticket');
 			}}>Create A Ticket</button
 		>
 	</div>
