@@ -12,8 +12,7 @@
 <div class="main">
 	<div class="title">
 		<h2>Projects</h2>
-		<!-- TODO: Add a button to navigate to the add project page -->
-		<button>Add A Project</button>
+		<a class="addProjectBtn" href="/createproject">Add A Project</a>
 	</div>
 	<div class="dataTitles">
 		<p>Title</p>
@@ -49,14 +48,20 @@
 	.title h2 {
 		padding: 0.5rem 0 0 8rem;
 	}
-	.title button {
+
+	.addProjectBtn {
 		padding: 0.5rem;
 		background: #eb7012;
 		color: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: none;
+		text-decoration: none;
+		font-size: 0.75rem;
 		border-radius: 5px;
-		box-shadow: 1px 1 px 9px 0px rgba(187, 186, 196, 1);
+		box-shadow: 1px 1px 9px 0px rgba(187, 186, 196, 1);
 	}
-
 	.dataTitles {
 		width: 80%;
 		margin: 0 auto;
