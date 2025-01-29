@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
-
 	let { data } = $props();
 	let projects = JSON.parse(data.projects);
 
