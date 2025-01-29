@@ -8,16 +8,15 @@
 		const [year, month, day] = dateTime.substr(1, 10).split('-');
 		return `${month}/${day}/${year}`;
 	};
+	// function navigate(ticket: any) {
+	// 	goto('/ticketdetails/' + ticket._id);
+	// }
 </script>
 
 <div class="wrapper">
 	<div class="tableTitle">
 		<h3>Tickets for {data.fullName}</h3>
-		<button
-			onclick={() => {
-				goto('/createticket');
-			}}>Create A Ticket</button
-		>
+		<a class="createTicketBtn" href="/createticket">Create A Ticket</a>
 	</div>
 
 	<table class="table">
@@ -34,7 +33,7 @@
 		<tbody>
 			{#if tickets && tickets.length > 0}
 				{#each tickets as ticket, index}
-					<tr>
+					<tr onclick={() => goto('/ticketdetails/' + ticket._id)}>
 						<td>{ticket.title}</td>
 						<td>{dateConverter(ticket.createdOn)}</td>
 						<td>{ticket.assignedDev}</td>
@@ -148,11 +147,13 @@
 		padding: 1rem 1rem;
 	}
 
-	.tableTitle button {
+	.createTicketBtn {
+		text-decoration: none;
 		padding: 0.5rem;
 		background: #eb7012;
 		border: none;
 		color: white;
 		border-radius: 5px;
+		font-size: 0.75rem;
 	}
 </style>
