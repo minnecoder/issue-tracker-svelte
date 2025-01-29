@@ -47,10 +47,10 @@
 		border: none;
 	}
 
-	select {
+	/* select {
 		padding: 1.5rem;
 		margin: 0.5rem;
-	}
+	} */
 
 	.submitBtn {
 		width: 8rem;
