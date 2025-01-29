@@ -5,8 +5,6 @@
 
 	let { data } = $props();
 	projects = JSON.parse(data.projects.allProjects);
-
-	// TODO: figure out what to be the "id" for projectticket
 </script>
 
 <div class="main">
@@ -90,7 +88,6 @@
 		justify-content: space-between;
 		padding: 0 1rem 0 1rem;
 		background: white;
-		border-radius: 20px;
 		box-shadow: 1px 1px 9px 0px rgba(187, 186, 196, 1);
 	}
 </style>
