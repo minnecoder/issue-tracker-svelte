@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+
 	let { data } = $props();
 	let tickets = JSON.parse(data.tickets);
 	let title = data.title;
@@ -8,8 +10,6 @@
 		date.push(date.splice(0, 1)[0]);
 		return date.join('/');
 	};
-
-	// TODO: Add functionality to view ticket details
 </script>
 
 <div class="wrapper">
@@ -30,7 +30,7 @@
 		</thead>
 		<tbody>
 			{#each tickets as ticket}
-				<tr>
+				<tr onclick={() => goto('/ticketdetails/' + ticket._id)}>
 					<td>{ticket.title}</td>
 					<td>{dateConverter(ticket.createdOn)}</td>
 					<td>{ticket.assignedDev}</td>
