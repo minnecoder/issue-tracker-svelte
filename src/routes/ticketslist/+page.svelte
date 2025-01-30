@@ -8,9 +8,6 @@
 		const [year, month, day] = dateTime.substr(1, 10).split('-');
 		return `${month}/${day}/${year}`;
 	};
-	// function navigate(ticket: any) {
-	// 	goto('/ticketdetails/' + ticket._id);
-	// }
 </script>
 
 <div class="wrapper">

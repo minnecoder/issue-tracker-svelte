@@ -14,10 +14,6 @@
 			<h3>Issue Tracker</h3>
 		</div>
 		<ul class="right">
-			<!-- <SearchBar>
-            <FaSearch style={{ paddingRight: '.25rem' }} />
-            <input type="search" name="search" id="search" placeholder="Search..." />
-          </SearchBar> -->
 			<li>Notifications</li>
 			<div class="dropdown">
 				<button class="dropbtn"
