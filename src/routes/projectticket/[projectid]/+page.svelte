@@ -15,11 +15,7 @@
 <div class="wrapper">
 	<div class="tableTitle">
 		<h3>Tickets for {title}</h3>
-		<button
-			onclick={() => {
-				// history.push('/createtickets');
-			}}>Create A Ticket</button
-		>
+		<a class="createTicket" href="/createticket">Create A Ticket</a>
 	</div>
 	<table class="table">
 		<thead>
@@ -57,8 +53,6 @@
 		grid-area: ticketarea;
 		width: calc(100vw - 200px);
 		overflow-y: scroll;
-		margin-left: 175px;
-		margin-top: 100px;
 	}
 	/* @media only screen and  (max-width: 800px){
     flex-direction: column;
@@ -123,10 +117,16 @@
 	.tableTitle h3 {
 		padding-top: 0.25rem;
 	}
-	.tableTitle button {
+
+	.createTicket {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
 		padding: 0.5rem;
 		background: #eb7012;
+		border: none;
 		color: white;
 		border-radius: 5px;
+		font-size: 0.75rem;
 	}
 </style>

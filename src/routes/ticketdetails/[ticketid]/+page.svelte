@@ -155,24 +155,29 @@
 			<p>Ticket Description</p>
 			<p class="description">{ticket.description}</p>
 		</section>
+		<section class="infoItem">
+			<p>Ticket Comments and Changes</p>
+			<TicketNotes {ticket} />
+			<form
+				class="ticketComment"
+				use:enhance={({ formData }) => formData.append('ticketid', ticket._id)}
+				method="POST"
+				action="?/addComment"
+			>
+				<!-- svelte-ignore element_invalid_self_closing_tag -->
+				<textarea name="ticketComment" bind:value={ticketComment} cols="30" rows="10" />
+				<button class="commentBtn" type="submit">Submit</button>
+			</form>
+		</section>
 	</div>
-	<TicketNotes {ticket} />
-	<form
-		class="ticketComment"
-		use:enhance={({ formData }) => formData.append('ticketid', ticket._id)}
-		method="POST"
-		action="?/addComment"
-	>
-		<!-- svelte-ignore element_invalid_self_closing_tag -->
-		<textarea name="ticketComment" bind:value={ticketComment} cols="30" rows="10" />
-		<button type="submit">Submit</button>
-	</form>
 </div>
 
 <style>
 	.wrapper {
 		background: white;
-		border-left: 1px solid #ccc;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		width: calc(100vw - 200px);
 	}
 	.ticketTitle {
 		display: flex;
@@ -216,15 +221,18 @@
 			justify-content: space-between;
 		}
 		select {
-			border: 1px solid black;
+			border: none;
+			padding: 0.75rem;
+			border-radius: 5px;
 		}
 		.submitBtn {
-			width: 8rem;
-			padding: 0.5rem;
-			margin: 0.5rem;
+			width: 6rem;
+			/* padding: 0.5rem; */
+			/* margin: 0.5rem; */
 			background: #eb7012;
 			color: white;
 			border-radius: 5px;
+			border: none;
 		}
 	}
 	.ticketInfo {
@@ -244,9 +252,6 @@
 			flex-wrap: wrap;
 		}
 	}
-	.edit-ticket section {
-		/* background: red; */
-	}
 
 	.ticketComment {
 		display: flex;
@@ -255,10 +260,6 @@
 		margin: 0 1rem;
 		@media (max-width: 800px) {
 			width: 20rem;
-		}
-		input[type='text'] {
-			height: 5rem;
-			border: solid 1px black;
 		}
 
 		textarea {
@@ -273,5 +274,14 @@
 			color: white;
 			border-radius: 5px;
 		}
+	}
+	.commentBtn {
+		margin-top: 0.5rem;
+		padding: 0.5rem;
+		width: 6rem;
+		background: #eb7012;
+		color: white;
+		border-radius: 5px;
+		border: none;
 	}
 </style>

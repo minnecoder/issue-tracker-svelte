@@ -4,7 +4,8 @@
 	import Header from '../components/Header.svelte';
 	import { page } from '$app/stores';
 
-	$: isAuthRoute = $page.url.pathname.startsWith('/login') || $page.url.pathname.startsWith('/register');
+	$: isAuthRoute =
+		$page.url.pathname.startsWith('/login') || $page.url.pathname.startsWith('/register');
 </script>
 
 <div class="layout" class:auth-layout={isAuthRoute}>
@@ -20,7 +21,7 @@
 <style>
 	.layout {
 		display: grid;
-		grid-template-columns: 200px 1fr 1fr;
+		grid-template-columns: 150px 1fr 1fr;
 		grid-template-rows: 100px 1fr;
 		grid-template-areas:
 			'header header header'

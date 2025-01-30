@@ -35,7 +35,7 @@
 <div class="wrapper">
 	{#each comments as comment}
 		<div class="ticketComment">
-			<div>
+			<div class="commentHeader">
 				{comment.user} commented <span>{DateDiff(comment.created)}</span>
 			</div>
 			<p>{comment.comment}</p>
@@ -55,34 +55,47 @@
 	.ticketChange {
 		display: flex;
 		justify-content: space-between;
-		background: #e7f3fd;
+		/* background: #e7f3fd; */
+		background: rgba(40, 100, 230, 0.493);
 		margin: 0.5rem;
 		padding: 0.5rem;
+		width: 40rem;
+		border-radius: 5px;
 	}
 	.ticketChange span {
 		padding-top: 0.25rem;
 		padding-left: 0.25rem;
 		font-size: 12px;
-		color: #b2b9be;
+		color: #e9e9e9;
 	}
 
 	.ticketComment {
 		display: flex;
 		flex-direction: column;
+		margin: 0.5rem;
 		padding: 0.5rem;
+		background: rgba(17, 178, 253, 0.507);
+		border-radius: 5px;
+		width: 40rem;
 	}
-	div {
+	.commentHeader {
 		padding: 0.5rem;
-		background: #e7f3fd;
+		/* background: #e7f3fd; */
+		background: rgba(17, 178, 253, 0.315);
 	}
 	span {
 		padding-top: 0.25rem;
 		font-size: 12px;
-		color: #b2b9be;
+		color: #e9e9e9;
 	}
-	p {
+	.ticketChange p {
 		margin-top: 0.25rem;
 		padding: 0.75rem;
-		border-left: solid 1px #ccc;
+	}
+
+	.ticketComment p {
+		font-style: italic;
+		margin-top: 0.25rem;
+		padding: 0.75rem;
 	}
 </style>
