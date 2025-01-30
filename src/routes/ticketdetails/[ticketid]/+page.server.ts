@@ -1,37 +1,54 @@
 import db from '$lib/db';
 import { ObjectId } from 'mongodb';
 import type { PageServerLoad } from './$types';
-import type { Actions, ServerLoadEvent } from '@sveltejs/kit';
+import type { Actions } from '@sveltejs/kit';
 
-export const load: PageServerLoad = async (event: ServerLoadEvent) => {
+export const load: PageServerLoad = async ({ params }) => {
+	const ticketid = params.ticketid;
 
-    const ticketid = event.params.ticketid;
+	const response = await db.collection('tickets').findOne({ _id: new ObjectId(ticketid) });
 
-    const response = await db.collection('tickets').findOne({ _id: new ObjectId(ticketid) });
-
-    return {
-        ticket: JSON.stringify(response)
-    };
+	return {
+		ticket: JSON.stringify(response)
+	};
 };
 
 export const actions: Actions = {
-    default: async ({ request }) => {
-        const formData = await request.formData();
-        const ticketComment = formData.get('ticketComment');
-        const ticketid = formData.get('ticketid');
+	addComment: async ({ request, cookies }) => {
+		const formData = await request.formData();
+		const ticketComment = formData.get('ticketComment');
+		const ticketid = formData.get('ticketid');
 
-        console.log('ticketComment', ticketComment);
+		const sessionCookie = cookies.get('session');
+		console.log('sessionCookie', sessionCookie);
+		console.log('ticketComment', ticketComment);
 
+		const response = await db
+			.collection('tickets')
+			.findOneAndUpdate({ _id: new ObjectId(ticketid?.toString()) }, {
+				$push: {
+					ticketComment: { comment: ticketComment, user: sessionCookie, created: new Date() }
+				}
+			} as any);
+	},
 
+	updateTicket: async ({ request }) => {
+		const formData = await request.formData();
+		let changesArray = formData.get('changesArray');
+		const ticketid = formData.get('ticketid');
 
-        const response = await db.collection('tickets').findOneAndUpdate(
-            { _id: new ObjectId(ticketid) },
-            { $push: { ticketComment: ticketComment } } as any
-        );
+		if (!changesArray || !ticketid) {
+			return { success: false, error: 'Missing required data' };
+		}
 
+		changesArray = JSON.parse(changesArray as string);
 
+		const response = await db
+			.collection('tickets')
+			.findOneAndUpdate({ _id: new ObjectId(ticketid?.toString()) }, {
+				$push: { ticketHistory: { $each: changesArray } }
+			} as any);
 
-
-
-    }
-}
+		return { success: true };
+	}
+};
