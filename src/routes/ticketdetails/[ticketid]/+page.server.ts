@@ -20,8 +20,6 @@ export const actions: Actions = {
 		const ticketid = formData.get('ticketid');
 
 		const sessionCookie = cookies.get('session');
-		console.log('sessionCookie', sessionCookie);
-		console.log('ticketComment', ticketComment);
 
 		const response = await db
 			.collection('tickets')

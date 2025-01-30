@@ -16,7 +16,6 @@
 	}
 
 	let data = $props();
-	$inspect(data.ticket);
 
 	const comments = data.ticket.ticketComment as TicketComment[];
 	const histories = data.ticket.ticketHistory as TicketHistory[];
