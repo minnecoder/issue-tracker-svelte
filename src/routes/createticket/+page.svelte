@@ -17,7 +17,7 @@
 </svelte:head>
 
 <div class="wrapper">
-	<a class="closeBtn" href="/tickets">Close</a>
+	<a class="closeBtn" href="/ticketslist">Close</a>
 	<h1>Create A Ticket</h1>
 	<form method="POST" action="/createticket">
 		<label>
