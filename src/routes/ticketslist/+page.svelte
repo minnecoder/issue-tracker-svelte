@@ -10,6 +10,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Tickets List</title>
+</svelte:head>
+
 <div class="wrapper">
 	<div class="tableTitle">
 		<h3>Tickets for {data.fullName}</h3>

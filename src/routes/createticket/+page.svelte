@@ -12,6 +12,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Create Ticket</title>
+</svelte:head>
+
 <div class="wrapper">
 	<a class="closeBtn" href="/tickets">Close</a>
 	<h1>Create A Ticket</h1>

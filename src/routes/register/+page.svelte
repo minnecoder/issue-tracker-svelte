@@ -6,6 +6,10 @@
 	let error = '';
 </script>
 
+<svelte:head>
+	<title>Register</title>
+</svelte:head>
+
 <div class="wrapper">
 	<form class="loginForm" method="POST" action="/register">
 		<h1>Register</h1>

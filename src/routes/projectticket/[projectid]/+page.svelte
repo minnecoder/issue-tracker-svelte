@@ -12,6 +12,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Project Tickets</title>
+</svelte:head>
+
 <div class="wrapper">
 	<div class="tableTitle">
 		<h3>Tickets for {title}</h3>

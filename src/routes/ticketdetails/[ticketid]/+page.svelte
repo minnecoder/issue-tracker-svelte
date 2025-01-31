@@ -69,6 +69,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Ticket Details</title>
+</svelte:head>
+
 <div class="wrapper">
 	<div class="ticketInfo">
 		<div class="ticketTitle">

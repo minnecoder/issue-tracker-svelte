@@ -7,6 +7,10 @@
 	projects = JSON.parse(data.projects.allProjects);
 </script>
 
+<svelte:head>
+	<title>Projects List</title>
+</svelte:head>
+
 <div class="main">
 	<div class="title">
 		<h2>Projects</h2>

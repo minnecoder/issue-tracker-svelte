@@ -13,6 +13,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Login</title>
+</svelte:head>
+
 <div class="loginWrapper">
 	<form class="loginForm">
 		<h1>Issue Tracker</h1>

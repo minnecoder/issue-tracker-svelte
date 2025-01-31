@@ -3,6 +3,10 @@
 	let description = '';
 </script>
 
+<svelte:head>
+	<title>Create Project</title>
+</svelte:head>
+
 <div class="wrapper">
 	<a class="closeBtn" href="/projectslist">Close</a>
 	<h1>Add Project</h1>
