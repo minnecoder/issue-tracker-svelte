@@ -21,8 +21,9 @@
 		left: 14%;
 		width: 80%;
 		height: 80%;
-		background: #128deb;
+		background: #fff;
 		border-radius: 10px;
+		border: 1px solid #ccc;
 	}
 
 	form {
@@ -36,7 +37,7 @@
 		text-align: center;
 		padding: 0.5rem 0;
 		margin-top: 5rem;
-		color: white;
+		color: eee;
 	}
 
 	input[type='text'] {
@@ -44,13 +45,8 @@
 		padding: 1.5rem;
 		margin: 0.75rem;
 		border-radius: 5px;
-		border: none;
+		border: solid 1px #ccc;
 	}
-
-	/* select {
-		padding: 1.5rem;
-		margin: 0.5rem;
-	} */
 
 	.submitBtn {
 		width: 8rem;

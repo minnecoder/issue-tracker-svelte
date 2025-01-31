@@ -67,8 +67,9 @@
 		left: 14%;
 		width: 80%;
 		height: 80%;
-		background: #128deb;
-		border-radius: 10px;
+		background: #fff;
+		border-radius: 5px;
+		border: 1px solid #ccc;
 	}
 
 	form {
@@ -85,7 +86,7 @@
 		text-align: center;
 		padding: 0.5rem 0;
 		margin-top: 0.5rem;
-		color: white;
+		color: #000;
 		@media (max-width: 650px) {
 			font-size: 1.5rem;
 			text-align: left;
@@ -93,7 +94,7 @@
 		}
 	}
 	label {
-		color: white;
+		color: #111;
 	}
 
 	input[type='text'] {
@@ -103,6 +104,7 @@
 	}
 
 	select {
+		width: 20rem;
 		padding: 1.5rem;
 		margin: 0.5rem;
 	}

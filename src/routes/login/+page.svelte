@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+
 	let email = '';
 	let password = '';
 	let error = '';
@@ -7,7 +9,7 @@
 		sessionStorage.setItem('firstName', 'Demo');
 		sessionStorage.setItem('lastName', 'User');
 		sessionStorage.setItem('demo', 'true');
-		history.push('/tickets');
+		goto('/tickets');
 	}
 </script>
 
@@ -26,21 +28,16 @@
 
 		<input type="submit" value="Login" />
 		<div class="loginLinks">
-			<button
-				onclick={() => {
-					history.push('/register');
-				}}
-			>
-				Register User
-			</button>
-			<button onclick={() => demoLogin()}> Login as a Demo User </button>
+			<p>Don't have an account? <a href="/register">Register</a></p>
+			<p>
+				Login as a Demo user <a href="/demo">Click Here</a>
+			</p>
 		</div>
 	</form>
 </div>
 
 <style>
-	.wrapper {
-		background: #128deb;
+	.loginWrapper {
 		height: 100vh;
 		width: 100%;
 	}
@@ -57,8 +54,8 @@
 		background: white;
 		width: 30rem;
 		padding: 2rem 0;
-		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 		border-radius: 5px;
+		border: 1px solid #ccc;
 	}
 	.loginForm h1 {
 		text-align: center;
@@ -89,19 +86,13 @@
 		color: white;
 		border-radius: 3px;
 		border: none;
-		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	}
-	.loginLinks {
-		display: flex;
-		flex-direction: column;
+	.loginLinks p {
 		padding: 0.5rem 0;
+		text-align: center;
 	}
-	.loginLinks button {
-		background: #128deb;
-		margin: 0.5rem;
-		padding: 1rem;
-		color: white;
-		border-radius: 5px;
-		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	.loginLinks a {
+		color: #eb7012;
+		text-decoration: none;
 	}
 </style>

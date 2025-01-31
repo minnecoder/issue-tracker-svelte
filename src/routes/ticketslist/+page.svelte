@@ -57,6 +57,8 @@
 		background: white;
 		grid-area: ticketarea;
 		overflow-y: scroll;
+		border: solid 1px #ccc;
+		border-radius: 5px;
 	}
 
 	/* @media only screen and (max-width: 800px) {

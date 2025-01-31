@@ -8,7 +8,7 @@
 
 <div class="wrapper">
 	<form class="loginForm" method="POST" action="/register">
-		<h1>Delivery Notes</h1>
+		<h1>Register</h1>
 		<h4>{error}</h4>
 		<div class="inputGroup">
 			<label for="firstName">First Name</label>
@@ -28,17 +28,19 @@
 		</div>
 
 		<input type="submit" value="Register User" />
+
+		<p>Already have an account? <a href="/login">Login</a></p>
 	</form>
 </div>
 
 <style>
 	.wrapper {
-		background: #128deb;
 		height: 100vh;
 		width: 100%;
 	}
 
 	.loginForm {
+		border: solid 1px #ccc;
 		position: absolute;
 		top: 10%;
 		margin-left: auto;
@@ -81,6 +83,12 @@
 		color: white;
 		border-radius: 3px;
 		border: none;
-		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	}
+	.loginForm p {
+		text-align: center;
+	}
+	.loginForm a {
+		color: #eb7012;
+		text-decoration: none;
 	}
 </style>
