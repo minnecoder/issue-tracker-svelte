@@ -3,8 +3,6 @@ import { ObjectId } from 'mongodb';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {
-	// TODO: Need to iterate through the array of ticket ids from project
-
 	const projectid = params.projectid;
 
 	const response = await db.collection('projects').findOne({ _id: new ObjectId(projectid) });
